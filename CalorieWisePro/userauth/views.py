@@ -4,6 +4,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 # Create your views here.
+def index(request):
+    return render(request, 'index.html')
+
 def home(request):
     if request.user.is_authenticated:
         return render(request, "home.html", {})
