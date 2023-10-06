@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title%} Home Page {% endblock %}
+
+{% block content %}
+
+    <section class="intro">
+        <h2>Welcome to CalorieWisePro</h2>
+        <p>Empowering you to make informed decisions about your fitness and health.</p>
+    </section>
+
+    <section class="features">
+        <h3>Key Features</h3>
+        <ul>
+            <li>Calculate and predict your calorie burn during workouts.</li>
+            <li>Track your fitness progress and workout history.</li>
+            <li>Access informative articles and fitness tips.</li>
+            <li>Get in touch with us for any questions or feedback.</li>
+        </ul>
+    </section>
+
+    <a href = "{% url 'logout' %}">Logout here</a>
+
+{% endblock %}
