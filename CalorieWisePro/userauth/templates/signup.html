@@ -1,16 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %} Signup Page {% endblock %}
 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
 {% block content %}
 
-    <form method ='post'>
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value = "Submit">
-    </form>
+    <div class="signup-container">
 
-    <h3>Already Have an Account??</h3>
-    <a href = "{% url 'login' %}">Sign In Here</a>
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            <h2>Sign Up</h2>
+
+            {% for field in form %}
+            <p>
+                {% if field.errors %}
+                <ul class="errorlist">
+                    {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {{ field.label_tag }} {{ field }}
+            </p>
+            {% endfor %}
+            <input type="submit" value="Register" />
+        </form>
+
+        <div class="login-link">
+            <h3>Already Have an Account?</h3>
+            <a href="{% url 'login' %}" class="login-button">Sign In Here</a>
+        </div>
+    </div>
 
 {% endblock %}
