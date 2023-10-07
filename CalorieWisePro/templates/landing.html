@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}">
+{% endblock %}
+
+{% block content %}
+<main>
+
+    <div class="container">
+
+        <div class="body">
+            <div class="image-container">
+            <img src="{% static 'images/index.jpg' %}" alt="Calorie Burn">
+        </div>
+
+        <div class="text-container">
+            <h2>MyFitnessPal</h2>
+            <p>Track meals, learn about your habits, and reach your goals with MyFitnessPal.</p>
+            <a href="#">START FOR FREE</a>
+        </div>
+
+    </div>
+
+
+</main>
+{% endblock %}
