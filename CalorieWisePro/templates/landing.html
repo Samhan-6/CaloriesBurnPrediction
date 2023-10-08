@@ -6,23 +6,28 @@
 {% endblock %}
 
 {% block content %}
-<main>
 
-    <div class="container">
+    <main class="landing-container">
+        <div class="landing-content">
+            <div class="text-container">
+                <h1>
+                    Move more,
+                    burn more,
+                    be more.
+                </h1>
+                <p>Discover a smarter way to manage your </p>
+                <p>calorie burn and achieve your fitness goals.</p>
 
-        <div class="body">
+                <div class="cta-buttons">
+                    <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up For Free</a>
+                </div>
+            </div>
+
             <div class="image-container">
-            <img src="{% static 'images/index.jpg' %}" alt="Calorie Burn">
+                <img src="{% static 'images/index.jpg' %}" alt="Calorie Burn">
+            </div>
+
         </div>
+    </main>
 
-        <div class="text-container">
-            <h2>MyFitnessPal</h2>
-            <p>Track meals, learn about your habits, and reach your goals with MyFitnessPal.</p>
-            <a href="#">START FOR FREE</a>
-        </div>
-
-    </div>
-
-
-</main>
 {% endblock %}
