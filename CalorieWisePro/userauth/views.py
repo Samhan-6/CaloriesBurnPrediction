@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
 
 def home(request):
     if request.user.is_authenticated:
@@ -58,5 +61,5 @@ def signin(request):
 
 def signout(request):
     logout(request)
-    return redirect("/home/signin/")
+    return redirect("/home")
 
