@@ -15,7 +15,7 @@
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 300px;
+    width: 350px;
 }
 
 /* Style for the form title */
@@ -36,7 +36,7 @@
     background-color: #0088a9;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 20px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -75,4 +75,11 @@
 
 .errorlist li {
     margin-top: 5px;
+}
+
+/* Style for password strength bar */
+#password-strength {
+    height: 15px; /* Same height as button */
+    width: 100%;
+    border-radius: 4px;
 }
