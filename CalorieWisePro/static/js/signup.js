@@ -10,21 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Define an array of messages for different password strengths
     var messages = [
-        "Very weak",
+        "Worst",
+        "Bad",
         "Weak",
-        "Medium",
-        "Strong",
-        "Very strong"
+        "Good",
+        "Strong"
     ];
 
-    // Define an array of colors for different password strengths
-    var colors = [
-        "#ff0000",
-        "#ff6600",
-        "#ffff00",
-        "#66ff00",
-        "#00ff00"
-    ];
 
     // Define a function to check the password strength
     function checkPasswordStrength() {
@@ -38,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (value.length == 0) {
             // Set the strength message and color to empty
             strength.innerHTML = "";
-            strength.style.backgroundColor = "#ffffff";
 
             // Disable the register button
             register.disabled = true;
@@ -76,8 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Set the strength message and color based on the score
-        strength.innerHTML = messages[score];
-        strength.style.backgroundColor = colors[score];
+        strength.innerHTML = "Strength: " + messages[score];
 
         // Enable the register button if the score is at least 3
         if (score >= 3) {

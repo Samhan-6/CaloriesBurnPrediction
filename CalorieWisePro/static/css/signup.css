@@ -1,68 +1,119 @@
 /* Style for the signup container */
 .signup-container {
+    background-image: url("/static/images/signup_bg.jpg");
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #f4f4f4; /* Background color for the entire container */
+    height: 78vh;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 /* Style for the signup form */
 .signup-container form {
-    background-color: #fff;
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 25px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 350px;
+    width: 80vw;
+    min-width: 250px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 }
 
 /* Style for the form title */
 .signup-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px
 }
 
 /* Style for form fields and labels */
-.signup-container p {
-    margin-bottom: 10px;
-    text-align: left;
+.signup-container .form-group {
+    margin-bottom: 8px;
 }
 
-/* Style for the submit button */
-.signup-container input[type="submit"] {
-    background-color: #0088a9;
-    color: #fff;
+.signup-container label{
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 3px;
+    display: block;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+.signup-container input{
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    margin-top: 6px;
+}
+
+
+
+.signup-container button.btn-primary:hover {
+    background-color: #00566b;
+    transform: scale(1.1);
+}
+
+/* Style for the "Register" button */
+#register-button {
+    background-color: #0088a9; /* Button background color */
+    color: #fff; /* Button text color */
     border: none;
-    padding: 15px 20px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: bolder;
+    padding: 15px 25px; /* Increase padding for a wider button */
+    width: 50%; /* Button width now spans the form */
 }
 
-.signup-container input[type="submit"]:hover {
-    background-color: #00566b;
+#register-button:hover {
+    background-color: #00566b; /* Button background color on hover */
+    transform: scale(1.1); /* Apply a slight scale effect on hover */
+}
+
+
+.login-link{
+    margin-top: 2px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 /* Style for the "Already Have an Account?" text */
 .login-link h3 {
     margin-top: 20px;
     font-size: 16px;
-    color: #333;
+    text-align: center;
+    color: #007BFF;
 }
 
 /* Style for the "Sign In Here" link */
 .login-link a {
-    color: #0088a9;
+    font-family: "Poppins", sans-serif;
+    color: #ff0000;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
+    font-size: 15px;
+    font-weight: bolder;
+    transition: background-color 0.3s;
 }
 
 .login-link a:hover {
     color: #00566b;
+    transform: scale(1.1);
 }
 
 /* Style for error messages */
@@ -77,9 +128,30 @@
     margin-top: 5px;
 }
 
-/* Style for password strength bar */
+/* Style for password strength bar container */
 #password-strength {
-    height: 15px; /* Same height as button */
-    width: 100%;
-    border-radius: 4px;
+    outline: none;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #111111;
+    position: relative;
+    letter-spacing: 1px;
+    border-radius: 0.4rem;
+    background: transparent;
+    padding: 0 2rem 0 0.5rem;
+    transition: background 0.19s ease-in-out;
+}
+
+
+@media  screen and (max-width: 768px){
+    .signup-container{
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .signup-container form{
+        width: auto;
+        max-width: 90%;
+    }
 }

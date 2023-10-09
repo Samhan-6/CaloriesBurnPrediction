@@ -22,7 +22,8 @@
             <h2>Sign Up</h2>
 
             {% for field in form %}
-            <p>
+            <div class="form-group">
+
                 {% if field.errors %}
                 <ul class="errorlist">
                     {% for error in field.errors %}
@@ -30,11 +31,17 @@
                     {% endfor %}
                 </ul>
                 {% endif %}
-                {{ field.label_tag }} {{ field }}
-            </p>
+                {{ field.label_tag }}
+                {{ field }}
+
+            </div>
+
             {% endfor %}
+
             <div id="password-strength"></div>
             <input type="submit" value="Register" id="register-button"/>
+
+
         </form>
 
         <div class="login-link">
