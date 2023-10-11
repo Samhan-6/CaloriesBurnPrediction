@@ -8,5 +8,6 @@ urlpatterns = [
     path('home/signup/', userauth.views.signup, name = 'signup'),
     path('home/signin/', userauth.views.signin, name = 'login'),
     path('home/signout/', userauth.views.signout, name = 'logout'),
+    path('profile/<username>', userauth.views.profile, name = 'profile'),
 
 ]

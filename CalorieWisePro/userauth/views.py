@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.models import User
 
 
 from userauth.forms import CustomUserCreationForm
@@ -70,4 +72,12 @@ def signin(request):
 def signout(request):
     logout(request)
     return redirect("/home")
+
+def profile(request, username):
+    user = User.objects.get(username=username)
+
+    context = {
+        'user': user,
+    }
+    return render(request, 'profile.html', context)
 
