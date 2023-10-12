@@ -97,7 +97,7 @@
 }
 
 .signup-button:hover {
-    background-color: #0088a9;
+    color: #0088a9;
     transform: scale(1.1);
 }
 

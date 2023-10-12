@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Prediction Result {% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/pred_result.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+
+    <h1>Prediction</h1>
+    <p>Your predicted calories burned are:: {{ prediction | floatformat:2 }} </p>
+    <a href="{% url 'home' %}">Back</a>
+
+{% endblock %}
