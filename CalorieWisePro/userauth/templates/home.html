@@ -20,19 +20,56 @@
 
 {% block content %}
 
-    <section class="intro">
-        <h2>Welcome to CalorieWisePro</h2>
-    </section>
-
-
     <div class="prediction-container">
-        <form action="{% url 'result' %}" method="post">
+        <form action="{% url 'result' %}" method="post" class="prediction-form">
             {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Predict">
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.Gender.label_tag }}
+                    {{ form.Gender }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.Age.label_tag }}
+                    {{ form.Age }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Height.label_tag }}
+                    {{ form.Height }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.Weight.label_tag }}
+                    {{ form.Weight }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Duration.label_tag }}
+                    {{ form.Duration }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.Heart_Rate.label_tag }}
+                    {{ form.Heart_Rate }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.Body_Temp.label_tag }}
+                    {{ form.Body_Temp }}
+                </div>
+            </div>
+
+            <input type="submit" value="Predict" class="btn-primary">
         </form>
     </div>
-
 
 {% endblock %}
 

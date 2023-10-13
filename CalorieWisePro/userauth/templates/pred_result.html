@@ -12,8 +12,10 @@
 
 {% block content %}
 
-    <h1>Prediction</h1>
-    <p>Your predicted calories burned are:: {{ prediction }} </p>
-    <a href="{% url 'home' %}">Back</a>
+    <div class="prediction-container">
+        <h1>Prediction Result</h1>
+        <p>Your predicted calories burned are : {{ prediction|floatformat:2 }} </p>
+        <a href="{% url 'home' %}">Back</a>
+    </div>
 
 {% endblock %}
