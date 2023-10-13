@@ -13,7 +13,7 @@
 {% block content %}
 
     <h1>Prediction</h1>
-    <p>Your predicted calories burned are:: {{ prediction | floatformat:2 }} </p>
+    <p>Your predicted calories burned are:: {{ prediction }} </p>
     <a href="{% url 'home' %}">Back</a>
 
 {% endblock %}

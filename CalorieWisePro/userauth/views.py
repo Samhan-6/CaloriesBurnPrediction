@@ -1,3 +1,5 @@
+import logging
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -27,57 +29,47 @@ def home(request):
         return redirect("/home/signin/")
 
 
-
 def getPrediction(X):
-    model = pickle.load(open('model.pkl', 'rb'))
-    prediction = model.predict(X.reshape(1, -1))
+    try:
+        with open('/Users/samhan_6/Documents/Final Project/SamhanShuhaib st20267818/CaloriesBurnPrediction/machineLearningModel/model.pkl', 'rb') as model_file:
+            model = pickle.load(model_file)
 
-    return prediction[0]
+            input_data = np.asarray(X, dtype=object)
+            input_data_reshaped = input_data.reshape(1, -1)
+            prediction = model.predict(input_data_reshaped)
+            return prediction
 
+    except EOFError:
+        logging.error("EOFError occurred while loading the model.")
+    except Exception as e:
+        logging.error(f"An error occurred: {str(e)}")
 
-def predict(request):
-    X = np.array([
-        request.POST['Gender'],
-        request.POST['Age'],
-        request.POST['Height'],
-        request.POST['Weight'],
-        request.POST['Duration'],
-        request.POST['Heart_Rate'],
-        request.POST['Body_Temp'],
-    ])
+def prediction(request):
+    form = PredictionForm(request.POST)
 
-    prediction = getPrediction(X)
+    if form.is_valid():
+        gender = request.POST['Gender']
+        if gender == 'Male':
+            gender_numeric = 0
+        else:
+            gender_numeric = 1
+        age = request.POST['Age']
+        height = request.POST['Height']
+        weight = request.POST['Weight']
+        duration = request.POST['Duration']
+        heart_rate = request.POST['Heart_Rate']
+        body_temp = request.POST['Body_Temp']
 
-    context = {
-        'prediction': prediction,
-    }
-    return render(request, 'pred_result.html', context)
+        X = [gender_numeric, age, height, weight, duration, heart_rate, body_temp]
 
+        prediction = getPrediction(X)
 
-
-
-
-
-
-
-'''
-
-def predict(request):
-    gender = request.POST['Gender']
-    age = request.POST['Age']
-    height = request.POST['Height']
-    weight = request.POST['Weight']
-    duration = request.POST['Duration']
-    heart_rate = request.POST['Heart_Rate']
-    body_temp = request.POST['Body_Temp']
-
-    X = [gender, age, height, weight, duration, heart_rate, body_temp]
-
-    result = getPrediction(X)
-
-    return render(request, 'pred_result.html', {'result': result})
-
-'''
+        if prediction is not None:
+            return render(request, 'pred_result.html', {'prediction': prediction})
+        else:
+            return render(request, 'home.html', {'form': form})
+    else:
+        return render(request, 'home.html', {'form': form})
 
 
 def signup(request):

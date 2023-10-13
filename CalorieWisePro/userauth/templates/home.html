@@ -26,63 +26,12 @@
 
 
     <div class="prediction-container">
-        <form action="{% url 'result' %}" method="get">
+        <form action="{% url 'result' %}" method="post">
+            {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Predict">
         </form>
     </div>
-
-
-
-
-            <!--
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="Gender">Gender:</label>
-                    <select name="Gender" id="Gender" class="form-control">
-                        <option value="0">Male</option>
-                        <option value="1">Female</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="Age">Age:</label>
-                    <input type="number" name="Age" id="Age" class="form-control">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="Height">Height (cm):</label>
-                    <input type="number" name="Height" id="Height" class="form-control">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="Weight">Weight (kg):</label>
-                    <input type="number" name="Weight" id="Weight" class="form-control">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="Duration">Workout Duration:</label>
-                    <input type="number" name="Duration" id="Duration" class="form-control">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="Heart_Rate">Heart Rate:</label>
-                    <input type="number" name="Heart_Rate" id="Heart_Rate" class="form-control">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="Body_Temp">Body Temperature:</label>
-                    <input type="number" name="Body_Temp" id="Body_Temp" class="form-control">
-                </div>
-            </div>
-
-            <div class="text-center">
-                <input type="submit" value="Get Predictions" class="btn btn-primary">
-            </div>
-        </form>
-    </div>
-
-    -->
 
 
 {% endblock %}

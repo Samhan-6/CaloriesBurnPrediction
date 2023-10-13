@@ -13,10 +13,10 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class PredictionForm(forms.Form):
-    gender = forms.ChoiceField(choices=[('Male', 'Male'), ('Female', 'Female')], label='Gender')
-    age = forms.IntegerField(min_value=0, max_value=100, label='Age')
-    height = forms.FloatField(min_value=0, max_value=300, label='Height (cm)')
-    weight = forms.FloatField(min_value=0, max_value=300, label='Weight (kg)')
-    duration = forms.IntegerField(min_value=0, max_value=120, label='Duration (min)')
-    heart_rate = forms.IntegerField(min_value=0, max_value=200, label='Heart Rate (bpm)')
-    body_temp = forms.FloatField(min_value=0, max_value=50, label='Body Temperature (°C)')
+    Gender = forms.ChoiceField(choices=[('Male', 'Male'), ('Female', 'Female')], label='Gender',)
+    Age = forms.IntegerField(min_value=0, max_value=100, label='Age')
+    Height = forms.FloatField(min_value=0, max_value=300, label='Height (cm)')
+    Weight = forms.FloatField(min_value=0, max_value=300, label='Weight (kg)')
+    Duration = forms.IntegerField(min_value=0, max_value=120, label='Duration (min)')
+    Heart_Rate = forms.IntegerField(min_value=0, max_value=200, label='Heart Rate (bpm)')
+    Body_Temp = forms.FloatField(min_value=0, max_value=50, label='Body Temperature (°C)')
