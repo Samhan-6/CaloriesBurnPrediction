@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_control
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.models import User
@@ -118,7 +119,7 @@ def signin(request):
         form = AuthenticationForm()
         return render(request, "signin.html", {"form": form})
 
-
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def signout(request):
     logout(request)
     return redirect("/home")
@@ -130,4 +131,4 @@ def profile(request, username):
     context = {
         'user': user,
     }
-    return render(request, 'profile.html', context)
+    return render(request, context)
