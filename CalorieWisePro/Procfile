@@ -1,0 +1,1 @@
+web gunicorn CalorieWisePro.wsgi:application --log-file -
