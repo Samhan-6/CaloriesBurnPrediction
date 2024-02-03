@@ -19,7 +19,7 @@ from .forms import PredictionForm
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, '../templates/index.html')
 
 
 def home(request):
@@ -32,7 +32,7 @@ def home(request):
 
 def getPrediction(X):
     try:
-        with open('/Users/samhan_6/Documents/Final Project/SamhanShuhaib st20267818/CaloriesBurnPrediction/machineLearningModel/model.pkl', 'rb') as model_file:
+        with open('/Users/samhan_6/Documents/Final Project/SamhanShuhaib st20267818/CaloriesBurnPrediction/CalorieWisePro/machineLearningModel/model.pkl', 'rb') as model_file:
             model = pickle.load(model_file)
 
             input_data = np.asarray(X, dtype=object)
