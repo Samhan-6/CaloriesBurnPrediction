@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environment
+venv/
+env/
+*.env
+
+# Ignore database files
+db.sqlite3
+
+# Ignore log files
+*.log
+
+# Ignore generated static files
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore local development settings
+*.env
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore local settings file
+local_settings.py
+
+# Ignore Mac OS system files
+.DS_Store
+
+# Ignore compiled JavaScript files
+*.js
+
+# Ignore compiled CSS files
+*.css
+
+# Ignore Node.js modules
+node_modules/
+
+# Ignore environment configuration files
+.env
